@@ -1,0 +1,16 @@
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
+
+  .left {
+    display: flex;
+    flex-direction: row;
+
+    :nth-child(1),
+    :nth-child(2) {
+      margin-right: 12px;
+    }
+  }
+}
