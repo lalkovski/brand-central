@@ -30,3 +30,8 @@ export const selectSelectedBrand = createSelector(
   selectBrandReducer,
   (brandsState) => brandsState.selectedBrand
 )
+
+export const selectBrandsSorted = createSelector(
+  selectBrandReducer,
+  (brandsState) => brandsState.sorted
+)

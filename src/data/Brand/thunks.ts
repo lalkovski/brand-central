@@ -43,10 +43,11 @@ export const getBrands =
 export const addBrand = (params: IPostBrandParams) => async (dispatch: Dispatch<BrandsActions>) => {
   dispatch(BrandsFetching(true))
   try {
-    const response = await API.Brands.postBrand(params)
-    dispatch(AddBrandAction(response))
+    // const response = await API.Brands.postBrand(params)
+    // Since this is a placeholder, the API doesn't support POST requests
+    dispatch(AddBrandAction({ ...params, id: Math.floor(Math.random() * 123456789) }))
     NotificationManager.success('Brand created successfully.')
-    return response
+    // return response
   } catch (error: any) {
     dispatch(GetBrandsErrors({ code: error.code, message: error.message }))
     NotificationManager.error('A problem occurred while creating the Brand.')

@@ -1,8 +1,16 @@
-import { IBrandReducer, IBrand } from 'models/Brand'
+import { addToArray, deleteFromArray, updateArray } from 'helpers/helperFunctions'
+import { IBrand, IBrandReducer, SORT_BRANDS_TYPE } from 'models/Brand'
 import { Action } from 'redux'
 import { isType } from 'ts-action'
-import { updateArray, deleteFromArray } from 'helpers/helperFunctions'
-import { GetBrands, BrandsFetching, UpdateBrand, DeleteBrand, GetSelectedBrand } from './actions'
+import {
+  AddBrand,
+  BrandsFetching,
+  DeleteBrand,
+  GetBrands,
+  GetSelectedBrand,
+  SortBrands,
+  UpdateBrand,
+} from './actions'
 
 const initialState: IBrandReducer = {
   isFetching: false,
@@ -20,14 +28,25 @@ export const brandsReducer = (state = initialState, action: Action): IBrandReduc
       },
     }
   }
+
   if (isType(action, GetSelectedBrand)) {
     const { payload } = action
-    const { data } = state
     return {
       ...state,
       selectedBrand: payload,
     }
   }
+
+  if (isType(action, AddBrand)) {
+    const { payload } = action
+    const { data } = state
+    const formattedArray = addToArray<IBrand>(payload, data.brands)
+    return {
+      ...state,
+      data: { brands: formattedArray, categories: data.categories },
+    }
+  }
+
   if (isType(action, UpdateBrand)) {
     const { payload } = action
     const { data } = state
@@ -37,6 +56,7 @@ export const brandsReducer = (state = initialState, action: Action): IBrandReduc
       data: { brands: formattedArray, categories: data.categories },
     }
   }
+
   if (isType(action, DeleteBrand)) {
     const { payload } = action
     const { data } = state
@@ -54,5 +74,31 @@ export const brandsReducer = (state = initialState, action: Action): IBrandReduc
       isFetching: payload,
     }
   }
+
+  if (isType(action, SortBrands)) {
+    const { payload } = action
+    const { data } = state
+    const brands = data.brands
+    let sortedBrands: IBrand[] = []
+    if (payload === SORT_BRANDS_TYPE.ALPHABETICALLY) {
+      sortedBrands = brands.map((el) => el).sort((a, b) => a.name.localeCompare(b.name))
+    }
+    if (payload === SORT_BRANDS_TYPE.REVERSE_ALPHABETICALLY) {
+      sortedBrands = brands.map((el) => el).sort((a, b) => b.name.localeCompare(a.name))
+    }
+    if (!payload) {
+      sortedBrands = brands.map((el) => el).sort((a, b) => a.id - b.id)
+    }
+
+    return {
+      ...state,
+      data: {
+        ...data,
+        brands: sortedBrands,
+      },
+      sorted: payload,
+    }
+  }
+
   return state
 }

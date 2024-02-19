@@ -25,6 +25,7 @@ const BrandCell = ({ brand }: IBrandCellProps) => {
       $imageUrl={brand.picture}
       onClick={handleClick}
       $isSelected={isSelectedBrand}
+      $id={brand.id}
     />
   )
 }

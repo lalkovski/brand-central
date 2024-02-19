@@ -8,7 +8,6 @@ export const StyledList = styled(Flex)`
 
   & > div:first-child {
     margin-top: 10px;
-    background-color: black;
   }
 
   & > div:last-child {

@@ -1,4 +1,4 @@
-import { selectBrandsIsFetching } from 'data/Brand/selectors'
+import { selectBrands, selectBrandsIsFetching } from 'data/Brand/selectors'
 import { getBrands } from 'data/Brand/thunks'
 import { selectStocks, selectStocksIsFetching } from 'data/Stock/selectors'
 import { getStocks } from 'data/Stock/thunks'
@@ -13,9 +13,12 @@ type TUseBrandsDataReturnType = {
 export const useBrandsData = (): TUseBrandsDataReturnType => {
   const dispatch: AppDispatch = useDispatch()
   const brandsIsFetching = useSelector(selectBrandsIsFetching)
+  const brands = useSelector(selectBrands)
 
   useEffect(() => {
-    dispatch(getBrands())
+    if (!brands.length) {
+      dispatch(getBrands())
+    }
   }, [])
 
   return { brandsIsFetching }

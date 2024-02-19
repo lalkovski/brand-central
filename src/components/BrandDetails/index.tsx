@@ -1,14 +1,9 @@
 import Flex from 'components/Flex'
+import { LineChart } from 'components/LineChart'
+import { Surface } from 'components/Surface'
 import { selectSelectedBrand } from 'data/Brand/selectors'
 import { useSelector } from 'react-redux'
-import {
-  BrandDescription,
-  BrandDetailsWrapper,
-  BrandTitle,
-  ImageWrapper,
-  NoBrandSelectedText,
-} from './style'
-import { LineChart } from 'components/LineChart'
+import { BrandDescription, BrandName, ImageWrapper, NoBrandSelectedText } from './style'
 
 export const BrandDetails = () => {
   const selectedBrand = useSelector(selectSelectedBrand)
@@ -21,16 +16,10 @@ export const BrandDetails = () => {
     )
 
   return (
-    <BrandDetailsWrapper
-      width='100%'
-      height='88%'
-      margin='10px'
-      padding='10px'
-      flexDirection='column'
-    >
+    <Surface>
       <Flex width='100%' height='max-content' justifyContent='space-between'>
         <Flex width='100%' flexDirection='column'>
-          <BrandTitle>{selectedBrand?.title}</BrandTitle>
+          <BrandName>{selectedBrand?.name}</BrandName>
           <BrandDescription>
             <span>Revenue: </span>
             {selectedBrand?.revenue}
@@ -51,6 +40,6 @@ export const BrandDetails = () => {
           </BrandDescription>
         </Flex>
       </Flex>
-    </BrandDetailsWrapper>
+    </Surface>
   )
 }

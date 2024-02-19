@@ -1,14 +1,6 @@
-import Flex from 'components/Flex'
 import styled from 'styled-components'
 
-export const BrandDetailsWrapper = styled(Flex)`
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.1);
-  margin-right: 0;
-`
-
-export const BrandTitle = styled.h1`
+export const BrandName = styled.h1`
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 10px;

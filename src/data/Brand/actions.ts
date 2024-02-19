@@ -1,4 +1,4 @@
-import { IBrand, IBrandsResponse } from 'models/Brand'
+import { IBrand, IBrandsResponse, SORT_BRANDS_TYPE } from 'models/Brand'
 import { IError } from 'models/Global'
 import { action, payload } from 'ts-action'
 
@@ -15,3 +15,5 @@ export const UpdateBrand = action('UpdateBrand', payload<IBrand>())
 export const DeleteBrand = action('DeleteBrand', payload<number>())
 
 export const GetBrandsErrors = action('GetBrandsErrors', payload<IError>())
+
+export const SortBrands = action('SortBrands', payload<SORT_BRANDS_TYPE | undefined>())

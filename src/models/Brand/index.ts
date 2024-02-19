@@ -3,7 +3,7 @@ import { ICategory } from 'models/Category'
 
 export interface IBrand {
   id: number
-  title: string
+  name: string
   categoryId: number
   revenue: string
   picture: string
@@ -13,7 +13,7 @@ export interface IBrand {
 export interface IGetBrandsParams {}
 
 export interface IPostBrandParams {
-  title: string
+  name: string
   categoryId: number
   revenue: string
   picture: string
@@ -21,7 +21,7 @@ export interface IPostBrandParams {
 }
 
 export interface IPutBrandParams {
-  title?: string
+  name?: string
   categoryId?: number
   revenue?: string
   picture?: string
@@ -33,6 +33,12 @@ export interface IBrandsResponse {
   categories: ICategory[]
 }
 
+export enum SORT_BRANDS_TYPE {
+  ALPHABETICALLY = 'alphabetically',
+  REVERSE_ALPHABETICALLY = 'reverse-alphabetically',
+}
+
 export interface IBrandReducer extends IBaseReducer<IBrandsResponse> {
   selectedBrand?: IBrand
+  sorted?: SORT_BRANDS_TYPE
 }

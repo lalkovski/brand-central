@@ -1,5 +1,8 @@
+import { selectSelectedBrand } from 'data/Brand/selectors'
+import { selectStocks } from 'data/Stock/selectors'
 import { IBrand } from 'models/Brand'
 import { IStock, TStockKeyTypes } from 'models/Stock'
+import { useSelector } from 'react-redux'
 
 /**
  * A function that returns data based on the selected brand
@@ -35,4 +38,42 @@ export const getDataForChart = (stocks: { [key: string]: IStock }, selectedBrand
 
 export const getSortedStockLabels = (stocks: { [key: string]: IStock }) => {
   return Object.keys(stocks).sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
+}
+
+type TUseLineChartDataReturnType = {
+  data: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: string[]
+      fill: boolean
+      borderColor: string
+      tension: number
+    }[]
+  }
+  selectedBrand?: IBrand
+}
+
+/**
+ * A custom hook that returns LineChart formatted data and the selectedBrand object
+ * @returns formatted data for usage within the chart component and the selectedBrand object
+ */
+export const useLineChartData = (): TUseLineChartDataReturnType => {
+  const stocks = useSelector(selectStocks)
+  const selectedBrand = useSelector(selectSelectedBrand)
+
+  const data = {
+    labels: getSortedStockLabels(stocks),
+    datasets: [
+      {
+        label: `${selectedBrand?.name} stock`,
+        data: getDataForChart(stocks, selectedBrand),
+        fill: false,
+        borderColor: '#ac0000',
+        tension: 0.1,
+      },
+    ],
+  }
+
+  return { data, selectedBrand }
 }
