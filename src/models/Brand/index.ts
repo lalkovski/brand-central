@@ -21,11 +21,11 @@ export interface IPostBrandParams {
 }
 
 export interface IPutBrandParams {
-  name?: string
-  categoryId?: number
-  revenue?: string
-  picture?: string
-  description?: string
+  name: string
+  categoryId: number
+  revenue: string
+  picture: string
+  description: string
 }
 
 export interface IBrandsResponse {
@@ -41,4 +41,5 @@ export enum SORT_BRANDS_TYPE {
 export interface IBrandReducer extends IBaseReducer<IBrandsResponse> {
   selectedBrand?: IBrand
   sorted?: SORT_BRANDS_TYPE
+  filteredBrands?: IBrand[]
 }

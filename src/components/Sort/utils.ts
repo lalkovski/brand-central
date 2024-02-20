@@ -31,7 +31,7 @@ export const useSortData = (): IUseSortDataReturnInterface => {
     if (isSortedReverseAlphabetically) return faArrowDownZA
 
     return faArrowDownWideShort
-  }, [sortType])
+  }, [isSortedAlphabetically, isSortedReverseAlphabetically])
 
   const sortBrands = () => {
     if (isSortedAlphabetically) {

@@ -11,22 +11,9 @@ export const StyledForm = styled.form`
   & > div {
     color: #ac0000;
   }
+`
 
-  & > input,
-  textarea,
-  select {
-    border: 2px solid #ac0000;
-    padding: 12px;
-    border-radius: 4px;
-  }
-
-  & > input:focus-visible {
-    outline: 0;
-  }
-  & > textarea:focus-visible {
-    outline: 0;
-  }
-  & > textarea {
-    resize: vertical;
-  }
+export const ErrorMessage = styled.p`
+  color: #f00;
+  margin-left: 15%;
 `

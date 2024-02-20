@@ -31,7 +31,18 @@ export const selectSelectedBrand = createSelector(
   (brandsState) => brandsState.selectedBrand
 )
 
+/**
+ * Gets the sorted variable from the brands reducer
+ */
 export const selectBrandsSorted = createSelector(
   selectBrandReducer,
   (brandsState) => brandsState.sorted
+)
+
+/**
+ * Gets the filteredBrands array from the brands reducer
+ */
+export const selectFilteredBrands = createSelector(
+  selectBrandReducer,
+  (brandsState) => brandsState.filteredBrands
 )

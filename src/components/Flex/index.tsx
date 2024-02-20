@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef } from "react";
+import React, { CSSProperties, forwardRef } from 'react'
 
 interface IFlexOptionsLong {
   /**
@@ -11,7 +11,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/align-items)
    */
-  alignItems?: CSSProperties["alignItems"];
+  alignItems?: CSSProperties['alignItems']
   /**
    * The CSS `align-content` property.
    *
@@ -20,7 +20,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/align-content)
    */
-  alignContent?: CSSProperties["alignContent"];
+  alignContent?: CSSProperties['alignContent']
   /**
    * The CSS `justify-items` property.
    *
@@ -30,7 +30,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/justify-items)
    */
-  justifyItems?: CSSProperties["justifyItems"];
+  justifyItems?: CSSProperties['justifyItems']
   /**
    * The CSS `justify-content` property.
    *
@@ -39,7 +39,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/justify-content)
    */
-  justifyContent?: CSSProperties["justifyContent"];
+  justifyContent?: CSSProperties['justifyContent']
   /**
    * The CSS `flex-wrap` property.
    *
@@ -49,7 +49,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-wrap)
    */
-  flexWrap?: CSSProperties["flexWrap"];
+  flexWrap?: CSSProperties['flexWrap']
   /**
    * The CSS `flex-flow` property.
    *
@@ -58,7 +58,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-flow)
    */
-  flexFlow?: CSSProperties["flexFlow"];
+  flexFlow?: CSSProperties['flexFlow']
   /**
    * The CSS `flex-basis` property.
    *
@@ -66,7 +66,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-basis)
    */
-  flexBasis?: CSSProperties["flexBasis"];
+  flexBasis?: CSSProperties['flexBasis']
   /**
    * The CSS `flex-direction` property.
    *
@@ -75,7 +75,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-direction)
    */
-  flexDirection?: CSSProperties["flexDirection"];
+  flexDirection?: CSSProperties['flexDirection']
   /**
    * The CSS `flex-direction` property.
    *
@@ -84,7 +84,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-direction)
    */
-  flex?: CSSProperties["flex"];
+  flex?: CSSProperties['flex']
   /**
    * The CSS `gap` property.
    *
@@ -93,7 +93,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/gap)
    */
-  gap?: CSSProperties["gap"];
+  gap?: CSSProperties['gap']
   /**
    * The CSS `row-gap` property.
    *
@@ -101,7 +101,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/row-gap)
    */
-  rowGap?: CSSProperties["rowGap"];
+  rowGap?: CSSProperties['rowGap']
   /**
    * The CSS `column-gap` property.
    *
@@ -109,7 +109,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/column-gap)
    */
-  columnGap?: CSSProperties["columnGap"];
+  columnGap?: CSSProperties['columnGap']
   /**
    * The CSS `justify-self` property.
    *
@@ -118,7 +118,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-flow)
    */
-  justifySelf?: CSSProperties["justifySelf"];
+  justifySelf?: CSSProperties['justifySelf']
   /**
    * The CSS `align-self` property.
    *
@@ -127,7 +127,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/align-self)
    */
-  alignSelf?: CSSProperties["alignSelf"];
+  alignSelf?: CSSProperties['alignSelf']
   /**
    * The CSS `order` property.
    *
@@ -135,7 +135,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/order)
    */
-  order?: CSSProperties["order"];
+  order?: CSSProperties['order']
   /**
    * The CSS `flex-grow` property.
    *
@@ -144,7 +144,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-grow)
    */
-  flexGrow?: CSSProperties["flexGrow"];
+  flexGrow?: CSSProperties['flexGrow']
   /**
    * The CSS `flex-shrink` property.
    *
@@ -153,7 +153,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-shrink)
    */
-  flexShrink?: CSSProperties["flexShrink"];
+  flexShrink?: CSSProperties['flexShrink']
   /**
    * The CSS `place-items` property.
    *
@@ -163,7 +163,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/place-items)
    */
-  placeItems?: CSSProperties["placeItems"];
+  placeItems?: CSSProperties['placeItems']
   /**
    * The CSS `place-content` property.
    *
@@ -173,7 +173,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/place-content)
    */
-  placeContent?: CSSProperties["placeContent"];
+  placeContent?: CSSProperties['placeContent']
   /**
    * The CSS `place-self` property.
    *
@@ -183,7 +183,7 @@ interface IFlexOptionsLong {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/place-self)
    */
-  placeSelf?: CSSProperties["placeSelf"];
+  placeSelf?: CSSProperties['placeSelf']
 }
 
 interface IFlexOptions extends IFlexOptionsLong {
@@ -191,154 +191,154 @@ interface IFlexOptions extends IFlexOptionsLong {
    * Shorthand for `alignItems` style prop
    * @type SystemProps["alignItems"]
    */
-  align?: IFlexOptionsLong["alignItems"];
+  align?: IFlexOptionsLong['alignItems']
 
   /**
    * Shorthand for `justifyContent` style prop
    * @type SystemProps["justifyContent"]
    */
-  justify?: IFlexOptionsLong["justifyContent"];
+  justify?: IFlexOptionsLong['justifyContent']
 
   /**
    * Shorthand for `flexWrap` style prop
    * @type SystemProps["flexWrap"]
    */
-  wrap?: IFlexOptionsLong["flexWrap"];
+  wrap?: IFlexOptionsLong['flexWrap']
 
   /**
    * Shorthand for `flexDirection` style prop
    * @type SystemProps["flexDirection"]
    */
-  direction?: IFlexOptionsLong["flexDirection"];
+  direction?: IFlexOptionsLong['flexDirection']
 
   /**
    * Shorthand for `flexBasis` style prop
    * @type SystemProps["flexBasis"]
    */
-  basis?: IFlexOptionsLong["flexBasis"];
+  basis?: IFlexOptionsLong['flexBasis']
 
   /**
    * Shorthand for `flexGrow` style prop
    * @type SystemProps["flexGrow"]
    */
-  grow?: IFlexOptionsLong["flexGrow"];
+  grow?: IFlexOptionsLong['flexGrow']
 
   /**
    * Shorthand for `flexShrink` style prop
    * @type SystemProps["flexShrink"]
    */
-  shrink?: IFlexOptionsLong["flexShrink"];
+  shrink?: IFlexOptionsLong['flexShrink']
 }
 
 export interface IDivOptions {
   /**
    * Custom width of the container
    */
-  width?: CSSProperties["width"];
+  width?: CSSProperties['width']
   /**
    * Custom height of the container
    */
-  height?: CSSProperties["height"];
+  height?: CSSProperties['height']
   /**
    * Set minimum width of the container
    */
-  minWidth?: CSSProperties["minWidth"];
+  minWidth?: CSSProperties['minWidth']
   /**
    * Set maximum width of the container
    */
-  maxWidth?: CSSProperties["maxWidth"];
+  maxWidth?: CSSProperties['maxWidth']
   /**
    * Set minimum height of the container
    */
-  minHeight?: CSSProperties["minHeight"];
+  minHeight?: CSSProperties['minHeight']
   /**
    * Set maximum height of the container
    */
-  maxHeight?: CSSProperties["maxHeight"];
+  maxHeight?: CSSProperties['maxHeight']
   /**
    * Set color of the text
    */
-  color?: CSSProperties["color"];
+  color?: CSSProperties['color']
   /**
    * Set the font size
    */
-  fontSize?: CSSProperties["fontSize"] | number;
+  fontSize?: CSSProperties['fontSize'] | number
   /**
    * Set the font weight
    */
-  fontWeight?: CSSProperties["fontWeight"] | number;
+  fontWeight?: CSSProperties['fontWeight'] | number
   /**
    * Align the text
    */
-  textAlign?: CSSProperties["textAlign"];
+  textAlign?: CSSProperties['textAlign']
 
   /**
    * Background color of the container
    */
-  backgroundColor?: CSSProperties["backgroundColor"];
+  backgroundColor?: CSSProperties['backgroundColor']
   /**
    * Set the style of the border.
    * This prop is required when setting a border
    */
-  borderStyle?: CSSProperties["borderStyle"];
+  borderStyle?: CSSProperties['borderStyle']
   /**
    * Set the border radius of the container
    */
-  borderRadius?: CSSProperties["borderRadius"];
+  borderRadius?: CSSProperties['borderRadius']
   /**
    * Set the width of the border
    */
-  borderWidth?: CSSProperties["borderWidth"];
+  borderWidth?: CSSProperties['borderWidth']
   /**
    * Set the color of the border
    */
-  borderColor?: CSSProperties["borderColor"];
+  borderColor?: CSSProperties['borderColor']
   /**
    * Set the margin
    */
-  margin?: CSSProperties["margin"];
+  margin?: CSSProperties['margin']
   /**
    * Set the left margin
    */
-  marginLeft?: CSSProperties["marginLeft"];
+  marginLeft?: CSSProperties['marginLeft']
   /**
    * Set the right margin
    */
-  marginRight?: CSSProperties["marginRight"];
+  marginRight?: CSSProperties['marginRight']
   /**
    * Set the top margin
    */
-  marginTop?: CSSProperties["marginTop"];
+  marginTop?: CSSProperties['marginTop']
   /**
    * Set the bottom margin
    */
-  marginBottom?: CSSProperties["marginBottom"];
+  marginBottom?: CSSProperties['marginBottom']
   /**
    * Set the padding
    */
-  padding?: CSSProperties["padding"];
+  padding?: CSSProperties['padding']
   /**
    * Set the left padding
    */
-  paddingLeft?: CSSProperties["paddingLeft"];
+  paddingLeft?: CSSProperties['paddingLeft']
   /**
    * Set the right padding
    */
-  paddingRight?: CSSProperties["paddingRight"];
+  paddingRight?: CSSProperties['paddingRight']
   /**
    * Set the top padding
    */
-  paddingTop?: CSSProperties["paddingTop"];
+  paddingTop?: CSSProperties['paddingTop']
   /**
    * Set the bottom padding
    */
-  paddingBottom?: CSSProperties["paddingBottom"];
+  paddingBottom?: CSSProperties['paddingBottom']
 }
 
 export interface IFlexProps
   extends IFlexOptions,
     IDivOptions,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "color"> {}
+    Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {}
 
 /**
  * React component used to create flexbox layouts.
@@ -380,12 +380,12 @@ const Flex = (props: IFlexProps, ref: React.Ref<HTMLDivElement>) => {
     borderStyle,
     borderColor: borderColorProp,
     ...rest
-  } = props;
+  } = props
 
-  const output = {};
+  const output = {}
 
   const styles = {
-    display: "flex",
+    display: 'flex',
     flexDirection: direction || flexDirection,
     alignItems: align || alignItems,
     justifyContent: justify || justifyContent,
@@ -405,13 +405,13 @@ const Flex = (props: IFlexProps, ref: React.Ref<HTMLDivElement>) => {
     borderStyle: borderStyle,
     ...output,
     ...props,
-  };
-  return <div ref={ref} style={styles as any} {...rest} />;
-};
+  }
+  return <div ref={ref} style={styles as any} {...rest} />
+}
 
-const FlexWithForwardedRef = forwardRef<HTMLDivElement, IFlexProps>(Flex);
+const FlexWithForwardedRef = forwardRef<HTMLDivElement, IFlexProps>(Flex)
 
-FlexWithForwardedRef.displayName = "Flex";
+FlexWithForwardedRef.displayName = 'Flex'
 
 /**
  * Export with 'as React.FC<IFlexProps>' in order to fix the bug that components that use
@@ -419,4 +419,4 @@ FlexWithForwardedRef.displayName = "Flex";
  *
  * https://github.com/styleguidist/react-docgen-typescript/issues/215
  */
-export default FlexWithForwardedRef as React.FC<IFlexProps>;
+export default FlexWithForwardedRef as React.FC<IFlexProps>

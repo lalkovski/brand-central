@@ -1,13 +1,20 @@
-import { addToArray, deleteFromArray, updateArray } from 'helpers/helperFunctions'
-import { IBrand, IBrandReducer, SORT_BRANDS_TYPE } from 'models/Brand'
+import {
+  addToArray,
+  deleteFromArray,
+  getSortedBrandsArray,
+  updateArray,
+} from 'helpers/helperFunctions'
+import { IBrand, IBrandReducer } from 'models/Brand'
 import { Action } from 'redux'
 import { isType } from 'ts-action'
 import {
   AddBrand,
   BrandsFetching,
   DeleteBrand,
+  FilterBrands,
   GetBrands,
   GetSelectedBrand,
+  RemoveFilteredBrands,
   SortBrands,
   UpdateBrand,
 } from './actions'
@@ -77,19 +84,12 @@ export const brandsReducer = (state = initialState, action: Action): IBrandReduc
 
   if (isType(action, SortBrands)) {
     const { payload } = action
-    const { data } = state
-    const brands = data.brands
-    let sortedBrands: IBrand[] = []
-    if (payload === SORT_BRANDS_TYPE.ALPHABETICALLY) {
-      sortedBrands = brands.map((el) => el).sort((a, b) => a.name.localeCompare(b.name))
+    const { data, filteredBrands } = state
+    const sortedBrands = getSortedBrandsArray(data.brands, payload)
+    let sortedFilteredBrands
+    if (filteredBrands) {
+      sortedFilteredBrands = getSortedBrandsArray(filteredBrands, payload)
     }
-    if (payload === SORT_BRANDS_TYPE.REVERSE_ALPHABETICALLY) {
-      sortedBrands = brands.map((el) => el).sort((a, b) => b.name.localeCompare(a.name))
-    }
-    if (!payload) {
-      sortedBrands = brands.map((el) => el).sort((a, b) => a.id - b.id)
-    }
-
     return {
       ...state,
       data: {
@@ -97,6 +97,25 @@ export const brandsReducer = (state = initialState, action: Action): IBrandReduc
         brands: sortedBrands,
       },
       sorted: payload,
+      filteredBrands: sortedFilteredBrands,
+    }
+  }
+
+  if (isType(action, FilterBrands)) {
+    const { payload } = action
+    const { data } = state
+    const brands = data.brands
+    let filteredBrands: IBrand[] = brands.filter((brand) => brand.categoryId === payload)
+    return {
+      ...state,
+      filteredBrands: filteredBrands,
+    }
+  }
+
+  if (isType(action, RemoveFilteredBrands)) {
+    return {
+      ...state,
+      filteredBrands: undefined,
     }
   }
 

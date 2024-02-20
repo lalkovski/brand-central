@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { TAddEditBrandFormValues } from 'components/AddEditBrandForm/utils'
+import { ISelectProps } from 'components/Select'
+import { ITextAreaProps } from 'components/TextArea'
 import React, { FormHTMLAttributes, ReactElement } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { IInputProps } from '../Forms/Input'
-import { ISelectProps } from '../Forms/Select'
-import { ITextAreaProps } from '../Forms/Textarea'
-import { StyledForm } from './styles'
+import { IInputProps } from '../Input'
+import { ErrorMessage, StyledForm } from './styles'
 
 interface ISmartFormProps extends Omit<FormHTMLAttributes<HTMLFormElement>, 'onSubmit'> {
   children:
@@ -40,12 +40,12 @@ export const SmartForm = ({ children, onSubmit, validationSchema }: ISmartFormPr
                   })}
                   {child.props.name &&
                     errors[child.props.name as keyof TAddEditBrandFormValues] && (
-                      <div className='error-message'>
+                      <ErrorMessage>
                         {
                           errors[child.props.name as keyof TAddEditBrandFormValues]
                             ?.message as string
                         }
-                      </div>
+                      </ErrorMessage>
                     )}
                 </React.Fragment>
               ) : (

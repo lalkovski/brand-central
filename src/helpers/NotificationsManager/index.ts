@@ -1,146 +1,81 @@
-import { Store } from 'react-notifications-component'
-
-export enum NOTIFICATION_TYPE {
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  INFO = 'info',
-  DEFAULT = 'default',
-  WARNING = 'warning',
-}
-
-export enum NOTIFICATION_CONTAINER {
-  BOTTOM_LEFT = 'bottom-left',
-  BOTTOM_RIGHT = 'bottom-right',
-  BOTTOM_CENTER = 'bottom-center',
-  TOP_LEFT = 'top-left',
-  TOP_RIGHT = 'top-right',
-  TOP_CENTER = 'top-center',
-  CENTER = 'center',
-}
-
-export enum NOTIFICATION_INSERTION {
-  TOP = 'top',
-  BOTTOM = 'bottom',
-}
-
-interface IDismiss {
-  duration: number
-  onScreen?: boolean
-  click?: boolean
-  touch?: boolean
-  showIcon?: boolean
-  pauseOnHover?: boolean
-}
+import { Flip, ToastPosition, ToastTransition, TypeOptions, toast } from 'react-toastify'
 
 interface INotificationConfig {
-  id?: string
-  type?: NOTIFICATION_TYPE
-  insert?: NOTIFICATION_INSERTION
-  container: NOTIFICATION_CONTAINER
-  onRemoval?: (id: string, removedBy: any) => void
-  animationIn?: string[]
-  animationOut?: string[]
-  width?: number
-  dismiss?: IDismiss
+  position?: ToastPosition
+  autoClose?: number
+  hideProgressBar?: boolean
+  closeOnClick?: boolean
+  pauseOnHover?: boolean
+  draggable?: boolean
+  progress?: string | number | undefined
+  theme?: 'light' | 'dark' | 'colored'
+  transition?: ToastTransition
+  type?: TypeOptions
 }
+
+type TNotificationTitleMessage = string | React.ReactNode | React.FunctionComponent
 
 const defaultConfig: INotificationConfig = {
-  insert: NOTIFICATION_INSERTION.TOP,
-  container: NOTIFICATION_CONTAINER.TOP_RIGHT,
-  dismiss: {
-    duration: 3000,
-    onScreen: true,
-    pauseOnHover: true,
-  },
+  position: 'top-right',
+  autoClose: 2000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: 'light',
+  transition: Flip,
 }
-
-type NotificationContent =
-  | React.ComponentClass<any, any>
-  | React.FunctionComponent<any>
-  | React.ReactElement
-
-export type NotificationTitleMessage = string | React.ReactNode | React.FunctionComponent
 
 class NotificationManager {
   static success(
-    message: NotificationTitleMessage,
-    title?: NotificationTitleMessage,
-    content?: NotificationContent,
+    message: TNotificationTitleMessage,
     config: INotificationConfig = {
-      type: NOTIFICATION_TYPE.SUCCESS,
+      type: 'success',
       ...defaultConfig,
     }
   ) {
-    Store.addNotification({
-      title: title || `Success`,
-      message,
-      content,
-      ...config,
-    })
+    toast.success(message, config)
   }
-
   static error(
-    message: NotificationTitleMessage,
-    title?: NotificationTitleMessage,
+    message: TNotificationTitleMessage,
     config: INotificationConfig = {
-      type: NOTIFICATION_TYPE.DANGER,
+      type: 'error',
       ...defaultConfig,
     }
   ) {
-    Store.addNotification({
-      title: title || `Error`,
-      message,
-      ...config,
-    })
+    toast.error(message, config)
   }
-
   static info(
-    message: NotificationTitleMessage,
-    title?: NotificationTitleMessage,
+    message: TNotificationTitleMessage,
     config: INotificationConfig = {
-      type: NOTIFICATION_TYPE.INFO,
+      type: 'info',
       ...defaultConfig,
     }
   ) {
-    Store.addNotification({
-      title: title || `Info`,
-      message,
-      ...config,
-    })
+    toast.info(message, config)
   }
-
   static default(
-    message: NotificationTitleMessage,
-    title?: NotificationTitleMessage,
+    message: TNotificationTitleMessage,
     config: INotificationConfig = {
-      type: NOTIFICATION_TYPE.DEFAULT,
+      type: 'default',
       ...defaultConfig,
     }
   ) {
-    Store.addNotification({
-      title: title || `Notification`,
-      message,
-      ...config,
-    })
+    toast(message, config)
   }
-
   static warning(
-    message: NotificationTitleMessage,
-    title?: NotificationTitleMessage,
+    message: TNotificationTitleMessage,
     config: INotificationConfig = {
-      type: NOTIFICATION_TYPE.WARNING,
+      type: 'warning',
       ...defaultConfig,
     }
   ) {
-    Store.addNotification({
-      title: title || `Warning`,
-      message,
-      ...config,
-    })
+    toast.warning(message, config)
   }
 
-  static removeNotification(id: string) {
-    Store.removeNotification(id)
+  static removeNotification(id: number) {
+    toast.dismiss(id)
   }
 }
 

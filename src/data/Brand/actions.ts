@@ -17,3 +17,7 @@ export const DeleteBrand = action('DeleteBrand', payload<number>())
 export const GetBrandsErrors = action('GetBrandsErrors', payload<IError>())
 
 export const SortBrands = action('SortBrands', payload<SORT_BRANDS_TYPE | undefined>())
+
+export const FilterBrands = action('FilterBrands', payload<number>())
+
+export const RemoveFilteredBrands = action('RemoveFilteredBrands')

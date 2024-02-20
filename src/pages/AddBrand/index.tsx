@@ -1,9 +1,16 @@
 import { AddEditBrandForm } from 'components/AddEditBrandForm'
 import Flex from 'components/Flex'
+import { FullScreenLoader } from 'components/FullScreenLoader'
 import { Surface } from 'components/Surface'
+import { useBrandsData } from 'pages/Brands/utils'
 import { Title } from './style'
 
 const AddBrand = () => {
+  const { brandsIsFetching } = useBrandsData()
+
+  if (brandsIsFetching) {
+    return <FullScreenLoader />
+  }
   return (
     <Flex
       backgroundColor='#F4F4F4'

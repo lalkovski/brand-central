@@ -17,7 +17,7 @@ export const BrandDetails = () => {
 
   return (
     <Surface>
-      <Flex width='100%' height='max-content' justifyContent='space-between'>
+      <Flex width='100%' height='100%' justifyContent='space-between'>
         <Flex width='100%' flexDirection='column'>
           <BrandName>{selectedBrand?.name}</BrandName>
           <BrandDescription>

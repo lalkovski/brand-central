@@ -10,7 +10,7 @@ export const StyledFlex = styled(Flex)<{
   $paddingProp?: string
 }>`
   width: ${({ $widthProp }) => $widthProp || '100%'};
-  height: ${({ $heightProp }) => $heightProp || '88%'};
+  height: ${({ $heightProp }) => $heightProp || 'calc(100% - 90px)'};
   margin: ${({ $marginProp }) => $marginProp || '10px'};
   padding: ${({ $paddingProp }) => $paddingProp || '10px'};
   background-color: #ffffff;

@@ -33,7 +33,7 @@ export const getBrands =
           message: error.message,
         })
       )
-      NotificationManager.error('A problem occurred while getting the Brands.')
+      NotificationManager.error('Oops, something happened!')
       throw Error(error)
     } finally {
       dispatch(BrandsFetching(false))
@@ -46,11 +46,10 @@ export const addBrand = (params: IPostBrandParams) => async (dispatch: Dispatch<
     // const response = await API.Brands.postBrand(params)
     // Since this is a placeholder, the API doesn't support POST requests
     dispatch(AddBrandAction({ ...params, id: Math.floor(Math.random() * 123456789) }))
-    NotificationManager.success('Brand created successfully.')
-    // return response
+    NotificationManager.success('Brand added successfully!')
   } catch (error: any) {
     dispatch(GetBrandsErrors({ code: error.code, message: error.message }))
-    NotificationManager.error('A problem occurred while creating the Brand.')
+    NotificationManager.error('Oops, something happened!')
     throw Error(error)
   } finally {
     dispatch(BrandsFetching(false))
@@ -61,10 +60,10 @@ export const updateBrand =
   (id: number, params: IPutBrandParams) => async (dispatch: Dispatch<BrandsActions>) => {
     dispatch(BrandsFetching(true))
     try {
-      const response = await API.Brands.putBrand(id, params)
-      dispatch(UpdateBrandAction(response))
-      NotificationManager.success('Brand updated successfully.')
-      return response
+      // Since this is a placeholder, the API doesn't support PUT requests
+      // const response = await API.Brands.putBrand(id, params)
+      dispatch(UpdateBrandAction({ ...params, id }))
+      NotificationManager.success('Brand updated successfully!')
     } catch (error: any) {
       dispatch(
         GetBrandsErrors({
@@ -72,7 +71,7 @@ export const updateBrand =
           message: error.message,
         })
       )
-      NotificationManager.error(`A problem occurred while updating Brand ID: ${id}`)
+      NotificationManager.error('Oops, something happened!')
       throw Error(error)
     } finally {
       dispatch(BrandsFetching(false))
@@ -81,10 +80,10 @@ export const updateBrand =
 
 export const deleteBrand = (id: number) => async (dispatch: Dispatch<BrandsActions>) => {
   try {
-    const response = await API.Brands.deleteBrand(id)
+    // Since this is a placeholder, the API doesn't support PUT requests
+    // const response = await API.Brands.deleteBrand(id)
     dispatch(DeleteBrandAction(id))
-    NotificationManager.success('Brand deleted successfully.')
-    return response
+    NotificationManager.success('Brand deleted successfully!')
   } catch (error: any) {
     dispatch(
       GetBrandsErrors({
@@ -92,7 +91,7 @@ export const deleteBrand = (id: number) => async (dispatch: Dispatch<BrandsActio
         message: error.message,
       })
     )
-    NotificationManager.error(`A problem occurred while deleting Brand with ID: ${id}`)
+    NotificationManager.error('Oops, something happened!')
     throw new Error(error)
   }
 }

@@ -19,7 +19,7 @@ export const useBrandsData = (): TUseBrandsDataReturnType => {
     if (!brands.length) {
       dispatch(getBrands())
     }
-  }, [])
+  }, [brands.length, dispatch])
 
   return { brandsIsFetching }
 }
@@ -37,6 +37,7 @@ export const useStocksData = (): TUseStocksDataReturnType => {
     if (Object.keys(stocks).length === 0) {
       dispatch(getStocks())
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return { stocksIsFetching }

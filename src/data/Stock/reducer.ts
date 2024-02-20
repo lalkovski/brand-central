@@ -6,8 +6,8 @@ import { GetStocks, StocksFetching } from './actions'
 const initialState: IStockReducer = {
   isFetching: false,
   data: {
-    ['Meta Data']: {},
-    ['Monthly Time Series']: {},
+    'Meta Data': {},
+    'Monthly Time Series': {},
   },
 }
 
