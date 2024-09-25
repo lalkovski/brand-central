@@ -102,3 +102,8 @@ export const getSortedBrandsArray = (brandsArray: IBrand[], sortType?: SORT_BRAN
 
   return sortedBrands
 }
+
+/**
+ * A function that returns if the viewport is smaller than 576 pixels
+ */
+export const isMobile = () => window.innerWidth <= 576

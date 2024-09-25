@@ -1,6 +1,7 @@
 import { Portal } from 'components/Portal'
 import { ReactNode, useEffect } from 'react'
 import { ModalContentWrapper, ModalWrapper } from './styles'
+import { isMobile } from 'helpers/helperFunctions'
 
 interface IModalProps {
   children: ReactNode
@@ -28,7 +29,7 @@ export const Modal = ({ children, isOpen, handleClose }: IModalProps) => {
         onClick={handleClose}
       >
         <ModalContentWrapper
-          padding='20px'
+          padding={isMobile() ? '50% 20px' : '20px'}
           justifyContent='center'
           onClick={(e) => e.stopPropagation()}
         >

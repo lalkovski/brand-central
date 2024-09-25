@@ -25,7 +25,7 @@ export const SmartForm = ({ children, onSubmit, validationSchema }: ISmartFormPr
   })
 
   return (
-    <StyledForm className='smart-form' onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
       {Array.isArray(children)
         ? children.map(
             (child: ReactElement<IInputProps | ISelectProps | ITextAreaProps>, index) => {

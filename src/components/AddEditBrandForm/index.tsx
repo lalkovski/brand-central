@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom'
 import ROUTES from 'routing/routes'
 import { AppDispatch } from 'store'
 import { TAddEditBrandFormValues, addEditBrandValidationSchema } from './utils'
+import { isMobile } from 'helpers/helperFunctions'
 
 export const AddEditBrandForm = () => {
   const categories = useSelector(selectCategories)
@@ -37,7 +38,11 @@ export const AddEditBrandForm = () => {
         placeholder='https://www.coca-colacompany.com/content/dam/company/us/en/the-coca-cola-company-logo.svg'
         label='Picture URL'
       />
-      <TextArea name='description' placeholder='Lorem ipsum dolor sit amet...' rows={26} />
+      <TextArea
+        name='description'
+        placeholder='Lorem ipsum dolor sit amet...'
+        rows={isMobile() ? 6 : 26}
+      />
       <Select name='categoryId' options={categories} label='Category' />
       <Flex width='100%' justifyContent='flex-end' alignItems='flex-end' padding='20px 0'>
         <Button onClick={() => navigate(ROUTES.ROOT)} isOutlined>

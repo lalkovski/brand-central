@@ -5,6 +5,7 @@ import { Filter } from 'components/Filter'
 import Flex from 'components/Flex'
 import { FullScreenLoader } from 'components/FullScreenLoader'
 import { Sort } from 'components/Sort'
+import { isMobile } from 'helpers/helperFunctions'
 import { useNavigate } from 'react-router-dom'
 import ROUTES from 'routing/routes'
 import { BrandsPageWrapper, BrandsWrapper } from './styles'
@@ -26,9 +27,9 @@ const Brands = () => {
       alignItems='center'
       width='100%'
     >
-      <BrandsPageWrapper width='80%' flexDirection='column'>
+      <BrandsPageWrapper width={isMobile() ? '95%' : '80%'} flexDirection='column'>
         <Flex width='100%' justifyContent='space-between' alignItems='center' margin='10px 0 0 0'>
-          <Flex width='10%' justifyContent='space-evenly'>
+          <Flex width={isMobile() ? '35%' : '10%'} justifyContent='space-evenly'>
             <Sort />
             <Filter />
           </Flex>
@@ -37,10 +38,10 @@ const Brands = () => {
           </Button>
         </Flex>
         <BrandsWrapper width='100%'>
-          <Flex width='155px'>
+          <Flex width={isMobile() ? '25%' : '13%'}>
             <BrandList />
           </Flex>
-          <Flex width='100%' justifyContent='flex-end'>
+          <Flex width={isMobile() ? '75%' : '87%'} justifyContent='flex-end'>
             <BrandDetails />
           </Flex>
         </BrandsWrapper>

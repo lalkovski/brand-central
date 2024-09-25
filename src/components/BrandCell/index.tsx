@@ -20,7 +20,8 @@ const BrandCell = ({ brand }: IBrandCellProps) => {
 
   return (
     <BrandCellWrapper
-      width='155px'
+      minWidth='50px'
+      width='100%'
       height='93px'
       $imageUrl={brand.picture}
       onClick={handleClick}

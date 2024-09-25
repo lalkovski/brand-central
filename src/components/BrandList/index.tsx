@@ -8,7 +8,7 @@ const BrandList = () => {
   const brands = useSelector(selectBrands)
 
   return (
-    <StyledList flexDirection='column' width='155px'>
+    <StyledList flexDirection='column' minWidth='20px' width='100%'>
       {filteredBrands?.length
         ? filteredBrands.map((brand) => <BrandCell brand={brand} key={brand.id} />)
         : brands.map((brand) => <BrandCell brand={brand} key={brand.id} />)}

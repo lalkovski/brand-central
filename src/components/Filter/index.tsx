@@ -49,7 +49,6 @@ export const Filter = () => {
       <Modal isOpen={isOpen} handleClose={closeModal}>
         <Flex width='100%' height='100%' flexDirection='column' alignItems='center'>
           <Flex alignItems='center' margin='0 0 40px 0' width='100%' justifyContent='space-between'>
-            <span></span>
             <Title>Filter Brands</Title>
             <StyledIcon icon={faXmark} color='#333333' onClick={closeModal} />
           </Flex>

@@ -1,3 +1,4 @@
+import { isMobile } from 'helpers/helperFunctions'
 import styled from 'styled-components'
 
 export const StyledForm = styled.form`
@@ -5,7 +6,7 @@ export const StyledForm = styled.form`
   flex-direction: column;
   gap: 12px;
   padding: 12px;
-  width: 50%;
+  width: ${() => (isMobile() ? '100%' : '50%')};
   height: 100%;
 
   & > div {

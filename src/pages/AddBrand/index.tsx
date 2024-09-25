@@ -4,6 +4,7 @@ import { FullScreenLoader } from 'components/FullScreenLoader'
 import { Surface } from 'components/Surface'
 import { useBrandsData } from 'pages/Brands/utils'
 import { Title } from './style'
+import { isMobile } from 'helpers/helperFunctions'
 
 const AddBrand = () => {
   const { brandsIsFetching } = useBrandsData()
@@ -19,7 +20,7 @@ const AddBrand = () => {
       width='100%'
       height='95vh'
     >
-      <Surface hasLeftMargin={false} width='79%' alignItems='center'>
+      <Surface hasLeftMargin={false} width={isMobile() ? '90%' : '79%'} alignItems='center'>
         <Title>Add Brand</Title>
         <AddEditBrandForm />
       </Surface>

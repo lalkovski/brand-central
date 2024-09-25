@@ -4,13 +4,20 @@ import { Surface } from 'components/Surface'
 import { selectSelectedBrand } from 'data/Brand/selectors'
 import { useSelector } from 'react-redux'
 import { BrandDescription, BrandName, ImageWrapper, NoBrandSelectedText } from './style'
+import { isMobile } from 'helpers/helperFunctions'
 
 export const BrandDetails = () => {
   const selectedBrand = useSelector(selectSelectedBrand)
 
   if (!selectedBrand?.id)
     return (
-      <Flex width='100%' height='100%' justifyContent='center' alignItems='center'>
+      <Flex
+        width='100%'
+        height='100%'
+        justifyContent='center'
+        alignItems='center'
+        textAlign='center'
+      >
         <NoBrandSelectedText>Please select a brand</NoBrandSelectedText>
       </Flex>
     )
@@ -30,7 +37,7 @@ export const BrandDetails = () => {
         </ImageWrapper>
       </Flex>
       <Flex flexDirection='column' alignItems='center'>
-        <Flex width='60%'>
+        <Flex width={isMobile() ? '100%' : '60%'}>
           <LineChart />
         </Flex>
         <Flex width='100%'>
